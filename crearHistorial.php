@@ -4,9 +4,11 @@ include("funciones.php");
    
 $dbcnx = mysql_connect($dbaddress,$dbuser,$dbpass)or die("Could not connect: " . mysql_error());
 mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mysql_error());
-echo "INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",".$_POST['supervisor'].",".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")";
+
+echo "INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",\"".$_POST['supervisor']."\",".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")";
+$query=mysql_query("INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",\"".$_POST['supervisor']."\",".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")") or die("-2");
 $idRealization=mysql_insert_id();
-echo $_POST['tipoModulo'];
+echo $idRealization;
 if($_POST['tipoModulo'] == "operacional"){
 	echo "INSERT INTO operationalmoduledetail (fk_realizationmodule) VALUES ($idRealization);";
 	$idOperationalModuleDetail=mysql_insert_id();
