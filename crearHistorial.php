@@ -5,21 +5,31 @@ include("funciones.php");
 $dbcnx = mysql_connect($dbaddress,$dbuser,$dbpass)or die("Could not connect: " . mysql_error());
 mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mysql_error());
 echo "INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",".$_POST['supervisor'].",".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")";
-$query=mysql_query("INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",".$_POST['supervisor']."\,".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")") or die("-2");
+$query=mysql_query("INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",".$_POST['supervisor'].",".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")") or die("-2");
 $idRealization=mysql_insert_id();
 echo $idRealization;
 if($_POST['tipoModulo'] == "operacional"){
 	echo "INSERT INTO operationalmoduledetail (fk_realizationmodule) VALUES ($idRealization);";
+	$query = mysql_query("INSERT INTO operationalmoduledetail (fk_realizationmodule) VALUES ($idRealization);");
 	$idOperationalModuleDetail=mysql_insert_id();
-	if($_POST['ResultadoVueltasRealizadas'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 1, ".$_POST['ResultadoVueltasRealizadas'].");"; }
-	if($_POST['ResultadoTonelajeTotal'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 19, ".$_POST['ResultadoTonelajeTotal'].");"; }
-	if($_POST['ResultadoPorcentajeCaidaMat'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 20, ".$_POST['ResultadoPorcentajeCaidaMat'].");"; }
-	if($_POST['ResultadoIntMaquina'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 9, ".$_POST['ResultadoIntMaquina'].");"; }
-	if($_POST['ResultadoIntFrontal'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 3, ".$_POST['ResultadoIntFrontal'].");"; }
-	if($_POST['ResultadoIntMotorDer'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 4, ".$_POST['ResultadoIntMotorDer'].");"; }
-	if($_POST['ResultadoIntMotorIzq'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 5, ".$_POST['ResultadoIntMotorIzq'].");"; }
-	if($_POST['ResultadoIntTolvaDer'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 6, ".$_POST['ResultadoIntTolvaDer'].");"; }
-	if($_POST['ResultadoIntTolvaIzq'] != ''){ echo "INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 7, ".$_POST['ResultadoIntTolvaIzq'].");"; }
+	if($_POST['ResultadoVueltasRealizadas'] != ''){
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 1, ".$_POST['ResultadoVueltasRealizadas'].");"); }
+	if($_POST['ResultadoTonelajeTotal'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 19, ".$_POST['ResultadoTonelajeTotal'].");"); }
+	if($_POST['ResultadoPorcentajeCaidaMat'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 20, ".$_POST['ResultadoPorcentajeCaidaMat'].");"); }
+	if($_POST['ResultadoIntMaquina'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 9, ".$_POST['ResultadoIntMaquina'].");"); }
+	if($_POST['ResultadoIntFrontal'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 3, ".$_POST['ResultadoIntFrontal'].");"); }
+	if($_POST['ResultadoIntMotorDer'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 4, ".$_POST['ResultadoIntMotorDer'].");"); }
+	if($_POST['ResultadoIntMotorIzq'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 5, ".$_POST['ResultadoIntMotorIzq'].");"); }
+	if($_POST['ResultadoIntTolvaDer'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 6, ".$_POST['ResultadoIntTolvaDer'].");"); }
+	if($_POST['ResultadoIntTolvaIzq'] != ''){ 
+		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_realizationmodule, fk_detail, value) VALUES ($idRealization, 7, ".$_POST['ResultadoIntTolvaIzq'].");"); }
 }
 if($_POST['tipoModulo'] == "informacion"){
 	
