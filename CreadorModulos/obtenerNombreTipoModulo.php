@@ -1,6 +1,5 @@
 ﻿<?php
-include("funciones.php");
-   $dbaddress='localhost'; $dbuser='root'; $dbpass=''; $dbname='mt6020';
+$dbaddress='localhost'; $dbuser='root'; $dbpass=''; $dbname='mt6020';
    
 $dbcnx = mysql_connect($dbaddress,$dbuser,$dbpass)or die("Could not connect: " . mysql_error());
 mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mysql_error());
