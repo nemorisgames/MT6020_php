@@ -14,7 +14,7 @@ while($resultQuery = mysql_fetch_array($query)){
   $salida=$salida.$resultQuery['id']."|".$resultQuery['question']."*";
 };
 
-echo $salida;
+echo rtrim($salida,"*");
 
 mysql_close($dbcnx);
 ?>

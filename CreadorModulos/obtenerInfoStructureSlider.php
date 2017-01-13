@@ -11,10 +11,10 @@ $query=mysql_query("SELECT * FROM Structure WHERE fk_informationPageDesign IN (S
 $salida = "";
 
 while($resultQuery = mysql_fetch_array($query)){
-  $salida=$salida.$resultQuery['id']."|".$resultQuery['icon']."|".$resultQuery['fontcolor']."|".$resultQuery['text'];
+  $salida=$salida.$resultQuery['id']."|".$resultQuery['icon']."|".$resultQuery['fontColor']."|".$resultQuery['text']."*";
 };
 
-echo $salida;
+echo rtrim($salida,"*");
 
 mysql_close($dbcnx);
 ?>

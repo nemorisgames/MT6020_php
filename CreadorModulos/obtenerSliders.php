@@ -14,7 +14,7 @@ while($resultQuery = mysql_fetch_array($query)){
   $salida=$salida.$resultQuery['id']."|".$resultQuery['Title']."|".$resultQuery['designe']."*";
 };
 
-echo $salida;
+echo rtrim($salida,"*");
 
 mysql_close($dbcnx);
 ?>

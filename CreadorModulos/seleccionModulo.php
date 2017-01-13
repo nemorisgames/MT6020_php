@@ -13,6 +13,7 @@ $salida="";
 while($resultQuery = mysql_fetch_array($query)){
 	$salida=$salida.$resultQuery['fk_moduleType'].'*'.$resultQuery['name'].'|';
 };
-echo $salida;
+
+echo rtrim($salida,"|");
 
 ?>
