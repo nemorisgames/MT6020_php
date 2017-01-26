@@ -7,7 +7,7 @@ mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mys
 
 mysql_query("SET NAMES 'utf8'");
 
-$query=mysql_query("INSERT INTO InformationModuleDetail (fk_realizationModule, fk_questionID, fk_informationModuleAnswers) VALUES (1,".$_POST['preguntaID'].",".$_POST['respuestaUsuarioID'].")") or die("-2");
+$query=mysql_query("INSERT INTO InformationModuleDetail (fk_realizationModule, fk_questionID, fk_informationModuleAnswers) VALUES (".$_POST['idModulo'].",".$_POST['preguntaID'].",".$_POST['respuestaUsuarioID'].")") or die("-2");
 echo " ".$query;
 
 mysql_close($dbcnx);

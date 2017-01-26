@@ -6,7 +6,7 @@ or die("Could not connect: " . mysql_error());
 mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mysql_error());
 mysql_query("SET NAMES 'utf8'");
 
-$query = mysql_query("SELECT aprovalPercentageQuestions FROM instancemodule WHERE fk_module = ".$_POST["idModulo"]) or die("-2");
+$query = mysql_query("SELECT aprovalPercentageQuestions FROM instancemodule WHERE fk_module = ".$_POST["idModule"]) or die("-2");
 echo $query;
 
 $salida="";
