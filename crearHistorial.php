@@ -1,7 +1,7 @@
 ﻿<?php
 include("funciones.php");
    $dbaddress='localhost'; $dbuser='root'; $dbpass=''; $dbname='mt6020';
-   
+
 $dbcnx = mysql_connect($dbaddress,$dbuser,$dbpass)or die("Could not connect: " . mysql_error());
 mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mysql_error());
 echo "INSERT INTO `realizationmodule`(`fk_user`, `fk_instancemodule`, `dateIni`, `time`, `supervisor`, `percentageQuestions`, `percentageCheck1`, `percentageCheck2`) VALUES (".$_POST['alumno'].",".$_POST['idInstanceModule'].",\"".$_POST['Fecha']."\",".$_POST['ResultadoTiempo'].",".$_POST['supervisor'].",".$_POST['ResultadoPreguntas'].",".$_POST['ResultadoCheck1'].",".$_POST['ResultadoCheck2'].")";
@@ -14,28 +14,27 @@ if($_POST['tipoModulo'] == "operacional"){
 	$idOperationalModuleDetail=mysql_insert_id();
 	if($_POST['ResultadoVueltasRealizadas'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 1, ".$_POST['ResultadoVueltasRealizadas'].");"); }
-	if($_POST['ResultadoTonelajeTotal'] != ''){ 
+	if($_POST['ResultadoTonelajeTotal'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 19, ".$_POST['ResultadoTonelajeTotal'].");"); }
-	if($_POST['ResultadoPorcentajeCaidaMat'] != ''){ 
+	if($_POST['ResultadoPorcentajeCaidaMat'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 20, ".$_POST['ResultadoPorcentajeCaidaMat'].");"); }
-	if($_POST['ResultadoIntMaquina'] != ''){ 
+	if($_POST['ResultadoIntMaquina'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 9, ".$_POST['ResultadoIntMaquina'].");"); }
-	if($_POST['ResultadoIntFrontal'] != ''){ 
+	if($_POST['ResultadoIntFrontal'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 3, ".$_POST['ResultadoIntFrontal'].");"); }
-	if($_POST['ResultadoIntMotorDer'] != ''){ 
+	if($_POST['ResultadoIntMotorDer'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 4, ".$_POST['ResultadoIntMotorDer'].");"); }
-	if($_POST['ResultadoIntMotorIzq'] != ''){ 
+	if($_POST['ResultadoIntMotorIzq'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 5, ".$_POST['ResultadoIntMotorIzq'].");"); }
-	if($_POST['ResultadoIntTolvaDer'] != ''){ 
+	if($_POST['ResultadoIntTolvaDer'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 6, ".$_POST['ResultadoIntTolvaDer'].");"); }
-	if($_POST['ResultadoIntTolvaIzq'] != ''){ 
+	if($_POST['ResultadoIntTolvaIzq'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 7, ".$_POST['ResultadoIntTolvaIzq'].");"); }
 }
 if($_POST['tipoModulo'] == "informacion"){
-	
 }
 if($_POST['tipoModulo'] == "checklist"){
-	
+
 }
 
 /*
@@ -43,7 +42,7 @@ $query=mysql_query("INSERT INTO `Historial`(`IdNivel`, `Fecha`, `PorPreguntas`, 
 
 $idHistorial=mysql_insert_id();
 //$idAlumno=$_POST['idAlumno'];
-// insertar en alumno historial 
+// insertar en alumno historial
 $query2=mysql_query("insert into Historial_Alumno(IdAlumno,IdHistorial, Fecha) values(\"".$_POST['idAlumno']."\",\"".$idHistorial."\",\"".$_POST['Fecha']."\")")or die("-3");
 if($_POST['CheckRFNivAceMot'] != null && $_POST['CheckRFNivAceMot'] != ""){
 	echo "insert into checklist(fk_historial, CheckRFNivPet, ResultadoCheckRFNivPet, CheckRFNivAceMot, ResultadoCheckRFNivAceMot, CheckRFNivAceHid,ResultadoCheckRFNivAceHid,CheckRFEstLuc,ResultadoCheckRFEstLuc,CheckRFEstNeu,ResultadoCheckRFEstNeu,CheckRFNivRef,ResultadoCheckRFNivRef,CheckRFNivAceTra,ResultadoCheckRFNivAceTra,CheckREBal,ResultadoCheckREBal,CheckREAnt,ResultadoCheckREAnt,CheckREArtCen,ResultadoCheckREArtCen,CheckREPasGen,ResultadoCheckREPasGen,CheckREFug,ResultadoCheckREFug,CheckRCLimPar,ResultadoCheckRCLimPar,CheckRCMan,ResultadoCheckRCMan,CheckRCLucGen,ResultadoCheckRCLucGen,CheckRCMonDis,ResultadoCheckRCMonDis,CheckRCAseCab,ResultadoCheckRCAseCab,CheckRCBoc,ResultadoCheckRCBoc,CheckPREstExtMan,ResultadoCheckPREstExtMan,CheckPREstExtInc,ResultadoCheckPREstExtInc,CheckPREstEsc,ResultadoCheckPREstEsc,CheckPRSalEme,ResultadoCheckPRSalEme,CheckPRSenMov,ResultadoCheckPRSenMov,CheckRCCab,ResultadoCheckRCCab, CheckRCTemAceMot, ResultadoCheckRCTemAceMot, CheckRCTemAceTra, ResultadoCheckRCTemAceTra, CheckRCVen, ResultadoCheckRCVen, CheckRCJoy, ResultadoCheckRCJoy, CheckRCPed, ResultadoCheckRCPed) values(".$idHistorial.",\"".$_POST['CheckRFNivPet']."\",\"".$_POST['ResultadoCheckRFNivPet']."\",\"".$_POST['CheckRFNivAceMot']."\",\"".$_POST['ResultadoCheckRFNivAceMot']."\",\"".$_POST['CheckRFNivAceHid']."\",\"".$_POST['ResultadoCheckRFNivAceHid']."\",\"".$_POST['CheckRFEstLuc']."\",\"".$_POST['ResultadoCheckRFEstLuc']."\",\"".$_POST['CheckRFEstNeu']."\",\"".$_POST['ResultadoCheckRFEstNeu']."\",\"".$_POST['CheckRFNivRef']."\",\"".$_POST['ResultadoCheckRFNivRef']."\",\"".$_POST['CheckRFNivAceTra']."\",\"".$_POST['ResultadoCheckRFNivAceTra']."\",\"".$_POST['CheckREBal']."\",\"".$_POST['ResultadoCheckREBal']."\",\"".$_POST['CheckREAnt']."\",\"".$_POST['ResultadoCheckREAnt']."\",\"".$_POST['CheckREArtCen']."\",\"".$_POST['ResultadoCheckREArtCen']."\",\"".$_POST['CheckREPasGen']."\",\"".$_POST['ResultadoCheckREPasGen']."\",\"".$_POST['CheckREFug']."\",\"".$_POST['ResultadoCheckREFug']."\",\"".$_POST['CheckRCLimPar']."\",\"".$_POST['ResultadoCheckRCLimPar']."\",\"".$_POST['CheckRCMan']."\",\"".$_POST['ResultadoCheckRCMan']."\",\"".$_POST['CheckRCLucGen']."\",\"".$_POST['ResultadoCheckRCLucGen']."\",\"".$_POST['CheckRCMonDis']."\",\"".$_POST['ResultadoCheckRCMonDis']."\",\"".$_POST['CheckRCAseCab']."\",\"".$_POST['ResultadoCheckRCAseCab']."\",\"".$_POST['CheckRCBoc']."\",\"".$_POST['ResultadoCheckRCBoc']."\",\"".$_POST['CheckPREstExtMan']."\",\"".$_POST['ResultadoCheckPREstExtMan']."\",\"".$_POST['CheckPREstExtInc']."\",\"".$_POST['ResultadoCheckPREstExtInc']."\",\"".$_POST['CheckPREstEsc']."\",\"".$_POST['ResultadoCheckPREstEsc']."\",\"".$_POST['CheckPRSalEme']."\",\"".$_POST['ResultadoCheckPRSalEme']."\",\"".$_POST['CheckPRSenMov']."\",\"".$_POST['ResultadoCheckPRSenMov']."\",\"".$_POST['CheckRCCab']."\",\"".$_POST['ResultadoCheckRCCab']."\",\"".$_POST['CheckRCTemAceMot']."\",\"".$_POST['ResultadoCheckRCTemAceMot']."\",\"".$_POST['CheckRCTemAceTra']."\",\"".$_POST['ResultadoCheckRCTemAceTra']."\",\"".$_POST['CheckRCVen']."\",\"".$_POST['ResultadoCheckRCVen']."\",\"".$_POST['CheckRCJoy']."\",\"".$_POST['ResultadoCheckRCJoy']."\",\"".$_POST['CheckRCPed']."\",\"".$_POST['ResultadoCheckRCPed']."\")";
