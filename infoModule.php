@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_DEPRECATED);
 $dbaddress='localhost'; $dbuser='root'; $dbpass=''; $dbname='mt6020';
 
 $dbcnx = mysql_connect($dbaddress,$dbuser,$dbpass)
@@ -7,11 +8,10 @@ mysql_select_db($dbname, $dbcnx) or die ('Unable to select the database: ' . mys
 mysql_query("SET NAMES 'utf8'");
 
 $query = mysql_query("SELECT aprovalPercentageQuestions FROM instancemodule WHERE fk_module = ".$_POST["idModule"]) or die("-2");
-echo $query;
 
 $salida="";
 while($resultQuery = mysql_fetch_array($query)){
-	$salida='|'.$salida.$resultQuery['aprovalPercentageQuestions'].'|';
+	$salida=$salida.$resultQuery['aprovalPercentageQuestions'];
 };
-echo ("Porcentaje aprovacion: ".$salida);
+echo ($salida);
 ?>
