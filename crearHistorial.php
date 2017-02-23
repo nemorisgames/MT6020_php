@@ -34,6 +34,99 @@ if($_POST['tipoModulo'] == "operacional"){
 if($_POST['tipoModulo'] == "informacion"){
 }
 if($_POST['tipoModulo'] == "checklist"){
+	if($_POST['CheckNivPet'] != '' && $_POST['ResultadoCheckNivPet'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,1,".$_POST['CheckNivPet'].",".$_POST['ResultadoCheckNivPet'].")");
+	}
+	if($_POST['CheckNivAceMot'] != '' && $_POST['ResultadoCheckNivAceMot'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,2,".$_POST['CheckNivAceMot'].",".$_POST['ResultadoCheckNivAceMot'].")");
+	}
+	if($_POST['CheckNivAceHid'] != '' && $_POST['ResultadoCheckNivAceHid'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,3,".$_POST['CheckNivAceHid'].",".$_POST['ResultadoCheckNivAceHid'].")");
+	}
+	if($_POST['CheckEstLuc'] != '' && $_POST['ResultadoCheckEstLuc'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,4,".$_POST['CheckEstLuc'].",".$_POST['ResultadoCheckEstLuc'].")");
+	}
+	if($_POST['CheckEstNeu'] != '' && $_POST['ResultadoCheckEstNeu'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,5,".$_POST['CheckEstNeu'].",".$_POST['ResultadoEstNeu'].")");
+	}
+	if($_POST['CheckNivRef'] != '' && $_POST['ResultadoCheckNivRef'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,6,".$_POST['CheckNivRef'].",".$_POST['ResultadoCheckNivRef'].")");
+	}
+	if($_POST['CheckNivAceTra'] != '' && $_POST['ResultadoCheckNivAceTra'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,7,".$_POST['CheckNivAceTra'].",".$_POST['ResultadoCheckNivAceTra'].")");
+	}
+	if($_POST['CheckNivAceTransf'] != '' && $_POST['ResultadoCheckNivAceTransf'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,8,".$_POST['CheckNivAceTransf'].",".$_POST['ResultadoCheckNivAceTransf'].")");
+	}
+	if($_POST['CheckFiltro'] != '' && $_POST['ResultadoCheckFiltro'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,9,".$_POST['CheckFiltro'].",".$_POST['ResultadoCheckFiltro'].")");
+	}
+	if($_POST['CheckIndObs'] != '' && $_POST['ResultadoCheckIndObs'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,10,".$_POST['CheckIndObs'].",".$_POST['ResultadoCheckIndObs'].")");
+	}
+	if($_POST['CheckLucGen'] != '' && $_POST['ResultadoCheckLucGen'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,11,".$_POST['CheckLucGen'].",".$_POST['ResultadoCheckLucGen'].")");
+	}
+	if($_POST['CheckLimPar'] != '' && $_POST['ResultadoCheckLimPar'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,12,".$_POST['CheckLimPar'].",".$_POST['ResultadoCheckLimPar'].")");
+	}
+	if($_POST['CheckAirAco'] != '' && $_POST['ResultadoCheckAirAco'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,13,".$_POST['CheckAirAco'].",".$_POST['ResultadoCheckAirAco'].")");
+	}
+	if($_POST['CheckMan'] != '' && $_POST['ResultadoCheckMan'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,14,".$_POST['CheckMan'].",".$_POST['ResultadoCheckMan'].")");
+	}
+	if($_POST['CheckMon'] != '' && $_POST['ResultadoCheckMon'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,15,".$_POST['CheckMon'].",".$_POST['ResultadoCheckMon'].")");
+	}
+	if($_POST['CheckAseCab'] != '' && $_POST['ResultadoCheckAseCab'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,16,".$_POST['CheckAseCab'].",".$_POST['ResultadoCheckAseCab'].")");
+	}
+	if($_POST['CheckBoc'] != '' && $_POST['ResultadoCheckBoc'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,17,".$_POST['CheckBoc'].",".$_POST['ResultadoCheckBoc'].")");
+	}
+	if($_POST['CheckTol'] != '' && $_POST['ResultadoCheckTol'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,18,".$_POST['CheckTol'].",".$_POST['ResultadoCheckTol'].")");
+	}
+	if($_POST['CheckTopEjeCen'] != '' && $_POST['ResultadoCheckTopEjeCen'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,19,".$_POST['CheckTopEjeCen'].",".$_POST['ResultadoCheckTopEjeCen'].")");
+	}
+	if($_POST['CheckArtCen'] != '' && $_POST['ResultadoCheckArtCen'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,20,".$_POST['CheckArtCen'].",".$_POST['ResultadoCheckArtCen'].")");
+	}
+	if($_POST['CheckArtDir'] != '' && $_POST['ResultadoCheckArtDir'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,21,".$_POST['CheckArtDir'].",".$_POST['ResultadoCheckArtDir'].")");
+	}
+	if($_POST['CheckPasGen'] != '' && $_POST['ResultadoCheckPasGen'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,22,".$_POST['CheckPasGen'].",".$_POST['ResultadoCheckPasGen'].")");
+	}
+	if($_POST['CheckFug'] != '' && $_POST['ResultadoCheckFug'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,23,".$_POST['CheckFug'].",".$_POST['ResultadoCheckFug'].")");
+	}
+	if($_POST['CheckMotEnf'] != '' && $_POST['ResultadoCheckMotEnf'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,24,".$_POST['CheckMotEnf'].",".$_POST['ResultadoCheckMotEnf'].")");
+	}
+	if($_POST['CheckEstExtMan'] != '' && $_POST['ResultadoCheckEstExtMan'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,25,".$_POST['CheckEstExtMan'].",".$_POST['ResultadoCheckEstExtMan'].")");
+	}
+	if($_POST['CheckEstExtInc'] != '' && $_POST['ResultadoCheckEstExtInc'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,26,".$_POST['CheckEstExtInc'].",".$_POST['ResultadoCheckEstExtInc'].")");
+	}
+	if($_POST['CheckEstEsc'] != '' && $_POST['ResultadoCheckEstEsc'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,27,".$_POST['CheckEstEsc'].",".$_POST['ResultadoCheckEstEsc'].")");
+	}
+	if($_POST['CheckSalEme'] != '' && $_POST['ResultadoCheckSalEme'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,28,".$_POST['CheckSalEme'].",".$_POST['ResultadoCheckSalEme'].")");
+	}
+	if($_POST['CheckCheFirCab'] != '' && $_POST['ResultadoCheckCheFirCab'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,29,".$_POST['CheckCheFirCab'].",".$_POST['ResultadoCheckCheFirCab'].")");
+	}
+	if($_POST['CheckCabCheFir'] != '' && $_POST['ResultadoCheckCabCheFir'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,30,".$_POST['CheckCabCheFir'].",".$_POST['ResultadoCheckCabCheFir'].")");
+	}
+	if($_POST['CheckSistAnsul'] != '' && $_POST['ResultadoCheckSistAnsul'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,31,".$_POST['CheckSistAnsul'].",".$_POST['ResultadoCheckSistAnsul'].")");
+	}
 
 }
 
