@@ -31,8 +31,10 @@ if($_POST['tipoModulo'] == "operacional"){
 	if($_POST['ResultadoIntTolvaIzq'] != ''){
 		mysql_query("INSERT INTO operationalmoduleestadisticdetail (fk_operationalModuleDetail, fk_detail, value) VALUES ($idOperationalModuleDetail, 7, ".$_POST['ResultadoIntTolvaIzq'].");"); }
 }
+
 if($_POST['tipoModulo'] == "informacion"){
 }
+
 if($_POST['tipoModulo'] == "checklist"){
 	if($_POST['CheckNivPet'] != '' && $_POST['ResultadoCheckNivPet'] != ''){
 		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,1,".$_POST['CheckNivPet'].",".$_POST['ResultadoCheckNivPet'].")");
@@ -100,8 +102,8 @@ if($_POST['tipoModulo'] == "checklist"){
 	if($_POST['CheckPasGen'] != '' && $_POST['ResultadoCheckPasGen'] != ''){
 		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,22,".$_POST['CheckPasGen'].",".$_POST['ResultadoCheckPasGen'].")");
 	}
-	if($_POST['CheckFug'] != '' && $_POST['ResultadoCheckFug'] != ''){
-		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,23,".$_POST['CheckFug'].",".$_POST['ResultadoCheckFug'].")");
+	if($_POST['CheckFugCil'] != '' && $_POST['ResultadoCheckFugCil'] != ''){
+		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,23,".$_POST['CheckFugCil'].",".$_POST['ResultadoCheckFugCil'].")");
 	}
 	if($_POST['CheckMotEnf'] != '' && $_POST['ResultadoCheckMotEnf'] != ''){
 		mysql_query("INSERT INTO checkmoduledetail (fk_realizationmodule,fk_checkquestion,correctAnswer,answerMade) VALUES ($idRealization,24,".$_POST['CheckMotEnf'].",".$_POST['ResultadoCheckMotEnf'].")");
